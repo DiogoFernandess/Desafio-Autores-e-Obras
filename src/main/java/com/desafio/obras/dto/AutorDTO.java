@@ -2,6 +2,8 @@ package com.desafio.obras.dto;
 
 import lombok.*;
 
+import java.util.List;
+
 @Getter
 @Setter
 @AllArgsConstructor
