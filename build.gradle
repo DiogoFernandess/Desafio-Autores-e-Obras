@@ -38,6 +38,17 @@ dependencies {
 	testAnnotationProcessor 'org.projectlombok:lombok'
 }
 
+tasks.withType(JavaExec) {
+	if (file(".env").exists()) {
+		file(".env").readLines().each { line ->
+			if (line.trim() && !line.startsWith("#")) {
+				def (key, value) = line.split("=", 2)
+				environment key.trim(), value.trim()
+			}
+		}
+	}
+}
+
 tasks.named('test') {
 	useJUnitPlatform()
 }
