@@ -53,4 +53,11 @@ public class AutorController {
         autorService.deletaUsuarioPorEmail(email);
         return ResponseEntity.ok().build();
     }
+
+    @PutMapping
+    @Operation(summary = "Atualizar dados de Usuários", description = "Atualiza dados do usuário")
+    public ResponseEntity<AutorDTO> atualizaDadosUsuario(@RequestBody AutorDTO dto,
+                                                           @RequestHeader("Authorization") String token){
+        return ResponseEntity.ok(autorService.atualizaDadosUsuario(token,dto));
+    }
 }
