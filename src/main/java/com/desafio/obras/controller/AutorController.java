@@ -47,4 +47,10 @@ public class AutorController {
     public ResponseEntity<AutorDTO> buscaUsuarioPorEmail(@RequestParam("email") String email) {
         return ResponseEntity.ok(autorService.buscaAutorPorEmail(email));
     }
+
+    @DeleteMapping("/{email}")
+    public ResponseEntity<Void> deletaUsuarioPorEmail(@PathVariable String email){
+        autorService.deletaUsuarioPorEmail(email);
+        return ResponseEntity.ok().build();
+    }
 }

@@ -54,5 +54,6 @@ public class AutorService {
         }
     }
 
+    public void deletaUsuarioPorEmail(String email){ autorRepository.deleteByEmail(email);}
 
 }
